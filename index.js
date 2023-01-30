@@ -29,11 +29,14 @@ console.log('örnek görev:', ilkiniDon(['as','sa'],function(metin){return metin
   
   Aşağıdaki skor1 ve skor2 kodlarını inceleyiniz ve aşağıdaki soruları altına not alarak cevaplayın
   
-  1. skor1 ve skor2 arasındaki fark nedir?
+  1. skor1 ve skor2 arasındaki fark nedir? s
+  - skor1 her zaman skor variablesi 0 dan başlayıp artacağı için 1 olacaktır, fakat skor2 de skor variablesi func dışında kaydedildiği için doğru şekilde artacaktır
   
   2. Hangisi bir closure kullanmaktadır? Nasıl tarif edebilirsin? (yarınki derste öğreneceksin :) )
+  - 1. closure kullanmaktadır çünkü function returnluyoruz
   
   3. Hangi durumda skor1 tercih edilebilir? Hangi durumda skor2 daha mantıklıdır?
+  - ben olsam hep skor 2 yi daha temiz olduğu için tercih ederim, skor 1 in mantığını ve gereğini tam kavrayamadığım için.
 */
 
 // skor1 kodları
@@ -64,8 +67,8 @@ Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
 Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyonu olarak da kullanılacak
 */
 
-function takimSkoru(/*Kodunuzu buraya yazınız*/){
-    /*Kodunuzu buraya yazınız*/
+function takimSkoru(){
+  return Math.floor(Math.random() * 15 +10);
 }
 
 
@@ -86,8 +89,13 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(/*Kodunuzu buraya yazınız*/){
-  /*Kodunuzu buraya yazınız*/
+function macSonucu(takimSkoru,ceyrek){
+  const mac = {
+     EvSahibi : takimSkoru() * ceyrek,
+     KonukTakim : takimSkoru() * ceyrek
+  }
+
+  return mac;
 }
 
 
@@ -109,8 +117,13 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
   */
 
 
-function periyotSkoru(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
+function periyotSkoru(takimSkoru) {
+  const mac = {
+    EvSahibi : takimSkoru() ,
+    KonukTakim : takimSkoru() 
+ }
+
+ return mac;
 
 }
 
@@ -146,9 +159,28 @@ MAÇ UZAR ise skorTabelasi(periyotSkoru,takimSkoru,4)
 ] */
 // NOTE: Bununla ilgili bir test yoktur. Eğer logladığınız sonuçlar yukarıdakine benziyor ise tmamlandı sayabilirsiniz.
 
-function skorTabelasi(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
+function skorTabelasi(macSonucu,periyotSkoru,ceyrek) {
+
+  const mac = {
+    EvSahibi : takimSkoru() ,
+    KonukTakim : takimSkoru() 
+ }
+  let uzatmaSayac = 1;
+
+  for (let i = 1; i <= ceyrek; i++) {
+
+  while (i = ceyrek){
+    if(mac.EvSahibi === mac.KonukTakim){
+      console.log(`${this.uzatmaSayac}. Uzatma: Ev Sahibi ${this.EvSahibi} - Konuk Takım ${this.KonukTakim}`);
+    }
+    
+  }
+  console.log(`${i}. Periyot: Ev Sahibi ${this.EvSahibi} - Konuk Takım ${this.KonukTakim}`);
+  
+console.log(`Mac sonucu: Ev Sahibi ${this.EvSahibi} - Konuk Takım ${this.KonukTakim}`);
 }
+}
+
 
 
 
